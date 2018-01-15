@@ -139,4 +139,4 @@ BEGIN
 	else 
 		writeln ('GlaDOS a gagnier...');
 	end
-END
+END.

@@ -159,12 +159,12 @@ BEGIN
 			
 
 				if  al -2 MOD 4 then
-					writeln ('GlaDOS prend 1 allumette il en reste,'al);
+					writeln ('GlaDOS prend 1 allumette il en reste',al);
 					al := al - 1;
 				
 	
 					else al -3 MOD 4 then 									// 20 - 3 = 17
-						writeln ('GlaDOS prend 2 allumette il en reste,'al);
+						writeln ('GlaDOS prend 2 allumette il en reste',al);
 						al := al - 2; 											//al = 18
 				
 				

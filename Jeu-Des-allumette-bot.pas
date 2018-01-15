@@ -43,17 +43,17 @@ VAR
 			SI (al > 1) ET (player) ALORS
 				player <- FAUX
 
-				SI  al -2 MOD 4 ALORS
+				SI  al -2 MOD 4 = 0 ALORS
 					ECRIRE ('GlaDOS prend 1 allumette il en reste,'al)
 					al <- al - 1
 				
 	
-					SINON al -3 MOD 4 ALORS 									// 20 - 3 = 17
+					SINON al -3 MOD 4 = 0 ALORS 									// 20 - 3 = 17
 						ECRIRE ('GlaDOS prend 2 allumette il en reste,'al)
 						al <- al - 2 											//al = 18
 				
 				
-						SINON SI (al -2 MOD 4) ET (al -3 MOD 4)  ALORS
+						SINON SI ((al -2 MOD )4 = 0) ET ((al -3 MOD 4) = 0)  ALORS
 							al <- al - (aléatoire entre 1 et 3)
 						FINSI
 

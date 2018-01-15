@@ -158,23 +158,25 @@ BEGIN
 
 			
 
-				if  al -2 MOD 4 then
+				if  ((al-2)MOD 4 = 0) then
+				begin
 					writeln ('GlaDOS prend 1 allumette il en reste',al);
-					al := al - 1;
+					al := al - 1
+				end
 				
 	
-					else al -3 MOD 4 then 									// 20 - 3 = 17
-						writeln ('GlaDOS prend 2 allumette il en reste',al);
-						al := al - 2; 											//al = 18
+					else ((al-3)MOD 4 = 0) then 	
+					begin								// 20 - 3 = 17
+						writeln ('GlaDOS prend 2 allumette il en reste',al)
+						al := al - 2
+					end;					//al = 18
+					
 				
-				
-						else if (al -2 MOD 4) ET (al -3 MOD 4)  then
-							al := al - (aléatoire entre 1 et 3);
-						end
-
-					end
-
-				end
+						else  ((al-2)MOD 4 = 0)  and ((al-3)MOD 4 = 0)  then
+						begin
+							al := al - (aléatoire entre 1 et 3)
+						end;
+		
 	until (al < 1);
 
 	if (al <= 0) then

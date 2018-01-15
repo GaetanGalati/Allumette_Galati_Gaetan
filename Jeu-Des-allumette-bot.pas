@@ -133,7 +133,7 @@ BEGIN
 			writeln ('nombre trop grand');
 		end
 		
-		else if (choix < 3) then
+		else if (choix <= 3) then
 		begin
 			al := al - choix;
 		end

@@ -73,44 +73,90 @@ VAR
 FIN}
 
 
+///PACA/
+
+PROGRAM Jeu_Des_allumette_bot;
+
+uses crt;
 
 
-CONST
+const
 
-	NBMAX : 21;
-	NBMIN : 1;
+	nbmax = 21;
+	nbmin = 0;
 
 
 VAR
-	
-	choix,al : INTEGER;
-	player : BOOL;
+
+	choix,al : integer; //le choix et le nombre d'allumette qu'il reste
+	player : boolean; // Si le joueur joue
+
 
 
 BEGIN
 
-	al := NBMAX;
+	randomize;
 
-	repeat
+	clrscr;
+	al := 21;
+	choix := 0;
+
+	TextColor (white);
+	writeln ('                | Le jeu des allumetes |             ');
+	writeln ('                   Appuiez sur Entrez              ');
+	readln ();
+	clrscr;
+
+	readln ();
+	clrscr;
+
+	REPEAT //DEBUT DU JEU
 		begin
-			if (al> 1) 
-				(player <- true);		//Player = vrai
+		
+		player := true;// Le joueur joue
+		
 
-			writeln ('Au joueur');
-			LIRE (choix);						// 1 
+		writeln ('Au tour du joueur 1 choisisez un nombre entre 1 et 3');
+		readln (choix);
+		clrscr;
+		{while (choix > 3) or (choix < 0) do
+			begin
+			writeln ('Entrez un bon choix');
+			readln (choix);
+			end;}
 
-			if (choix = 1) then
-				al := al -1;						//al = 20
-			if (choix = 2) then
-				al := al -2
-			if (choix = 3) then
-				al := al -3
-			if (choix := 3) then
-				writeln ('Nombre trop grand !');
-				writeln ('Il reste',al) ;				// Il reste 20
 
-			if (al > 1) AND (player) then
-				player := FAUX
+		if (choix = 1) then
+			al := al -1;
+
+		if (choix = 2)then
+			al := al -2;
+
+		if (choix = 3)then
+			al := al -3;
+		if (choix > 3)then
+			writeln ('Trop grand');
+
+		writeln ('Il reste: ',al,'allumetes');
+		
+	
+
+
+        if (al > 1) and (player)then //Si il reste plus d'une allumette et que le joueur joue....
+
+        begin
+
+			
+		
+			writeln ('Au tour de GlaDOS !');
+			choix := random(3)+1;
+			writeln ('je prend ',choix ,' allumetes ! ');
+			readln();
+		
+			
+			clrscr;
+
+			
 
 				if  al -2 MOD 4 then
 					writeln ('GlaDOS prend 1 allumette il en reste,'al);
@@ -129,14 +175,24 @@ BEGIN
 					end
 
 				end
+	until (al < 1);
+
+	if (al <= 0) then
+		al := 0;
 
 
-	until (al <= NBMIN)
-	end
+	if (al = 0) and (player) then
+		begin
+		TextColor (lightred);
+		writeln ('Le joueur: a perdus ! ');
+		end
+	else if (al > 1) and (player = false) then
+		begin
+		TextColor (green);
+		writeln ('Coeur corrompue a 100 % ! GlaDOS a perdus...')
+		end;
 
-	if (player) then																
-		writeln ('Le joueur a gagnier ! ');
-	else 
-		writeln ('GlaDOS a gagnier...');
-	end
+
+	
+readln ();
 END.

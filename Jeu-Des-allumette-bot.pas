@@ -128,9 +128,9 @@ BEGIN
 			readln (choix);
 			end;}
 
-		if (choix > 3)then
+		if (choix > 3)then//Si le np est plus grand que 3
 		begin
-			writeln ('Trop grand');
+			writeln ('nombre trop grand');
 		end
 		
 		else if (choix < 3) then

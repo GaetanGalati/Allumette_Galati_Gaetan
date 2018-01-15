@@ -27,16 +27,19 @@ VAR
 				(player <- VRAI)			//Player = vrai
 
 			ECRIRE ('Au joueur')
-			LIRE (choix)						// 1 
-
-			SI (choix = 1) ALORS
-				al <- al -1						//al = 20
-			SI (choix = 2) ALORS
-				al <-al -2
-			SI (choix = 3) ALORS
-				al <- al -3
-			SI (choix > 3) ALORS
-				ECRIRE ('Nombre trop grand !')
+			LIRE (choix)
+			
+			SI (choix < 3) ALORS
+				debut
+				ECRIRE ('Nombre trop grand !')// 1
+				fin
+			
+			Sinon
+				debut
+				al <- al - choix //Al = 20
+				fin
+		
+			
 
 			ECRIRE ('Il reste',al) 				// Il reste 20
 
@@ -125,17 +128,15 @@ BEGIN
 			readln (choix);
 			end;}
 
-
-		if (choix = 1) then
-			al := al -1;
-
-		if (choix = 2)then
-			al := al -2;
-
-		if (choix = 3)then
-			al := al -3;
 		if (choix > 3)then
+		begin
 			writeln ('Trop grand');
+		end
+		
+		else if (choix < 3) then
+		begin
+			al := al - choix;
+		end
 
 		writeln ('Il reste: ',al,'allumetes');
 		
